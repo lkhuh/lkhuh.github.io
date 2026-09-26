@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sparsh Saxena — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF6EF;
+    --ink: #1C2B3A;
+    --ink-soft: #4A5A6A;
+    --rule: #D8CFBE;
+    --gold: #A9822C;
+    --code-bg: #F1ECDD;
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181D;
+      --ink: #ECE6D6;
+      --ink-soft: #A9B0B8;
+      --rule: #333B44;
+      --gold: #D3AE5C;
+      --code-bg: #1D2228;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181D;
+    --ink: #ECE6D6;
+    --ink-soft: #A9B0B8;
+    --rule: #333B44;
+    --gold: #D3AE5C;
+    --code-bg: #1D2228;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+  header.hero { margin-bottom: 3.5rem; }
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    margin: 0 0 0.6rem;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+    font-weight: 600;
+  }
+  .lede {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 56ch;
+    margin: 0 0 1.6rem;
+  }
+  .contact {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+  }
+  .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .contact a:hover { border-color: var(--gold); color: var(--gold); }
+
+  section { margin-bottom: 3rem; }
+  h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin: 0 0 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .langs { columns: 2; column-gap: 2rem; font-size: 0.98rem; line-height: 1.9; color: var(--ink-soft); }
+  .langs div { break-inside: avoid; }
+  .langs b { color: var(--ink); font-weight: 600; }
+
+  .project {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    padding: 1.4rem;
+    margin-bottom: 1.1rem;
+    background: var(--code-bg);
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+  .project h3 { margin: 0 0 0.4rem; font-size: 1.15rem; font-weight: 600; }
+  .project p { margin: 0 0 0.6rem; color: var(--ink-soft); line-height: 1.55; font-size: 0.97rem; }
+  .project ul { margin: 0 0 0.7rem; padding-left: 1.1rem; color: var(--ink-soft); font-size: 0.94rem; line-height: 1.6; }
+  .project a.repo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .project a.repo:hover { text-decoration: underline; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.4rem; }
+  .skills-grid div b {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: none;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .skills-grid div span { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
+
+  .edu p { margin: 0 0 0.3rem; color: var(--ink-soft); font-size: 0.97rem; }
+  .edu b { color: var(--ink); }
+
+  footer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 520px) {
+    .langs { columns: 1; }
+    .wrap { padding: 2.8rem 1.2rem 3.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker">Freelance developer &amp; Hindi–English document specialist</p>
+    <h1>Sparsh Saxena</h1>
+    <p class="lede">I build small Python tools and full desktop applications, and handle Hindi–English document work — OCR, text extraction, proofreading, and formatting — with about five years behind a keyboard.</p>
+    <div class="contact">
+      <a href="mailto:pythonguy64@gmail.com">pythonguy64@gmail.com</a>
+      <a href="tel:+917253841664">+91 7253841664</a>
+      <a href="https://github.com/lkhuh" target="_blank" rel="noopener">github.com/lkhuh</a>
+      <span style="color:var(--ink-soft)">India</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>languages</h2>
+    <div class="langs">
+      <div><b>Hindi</b> — native / mother tongue</div>
+      <div><b>English</b> — advanced, C1 working proficiency</div>
+      <div>English ↔ Hindi written-content handling</div>
+      <div>Proofreading &amp; text review</div>
+      <div>Terminology research for unfamiliar words and names</div>
+      <div>Consistent formatting across translated content</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>selected work</h2>
+
+    <div class="project">
+      <h3>School management system — Candida Little Wings School</h3>
+      <p>A full desktop administration system built for a real school, in production use.</p>
+      <ul>
+        <li>Python/Tkinter app with separate modules for student marks &amp; report cards, fee collection, billing, teacher records, and salary — each backed by its own SQLite database.</li>
+        <li>Packaged as a standalone Windows executable with PyInstaller so non-technical staff could run it without installing Python.</li>
+        <li>Also built a companion exam-paper / question-pattern generator for the same school.</li>
+      </ul>
+      <a class="repo" href="https://github.com/lkhuh/FOR-CANDIDA" target="_blank" rel="noopener">github.com/lkhuh/FOR-CANDIDA →</a>
+    </div>
+
+    <div class="project">
+      <h3>Pong, from scratch</h3>
+      <p>A playable Pong game written in Python — game loop, collision detection, and score tracking built without a framework.</p>
+      <a class="repo" href="https://github.com/lkhuh/pong-game-of-mine" target="_blank" rel="noopener">github.com/lkhuh/pong-game-of-mine →</a>
+    </div>
+
+    <div class="project">
+      <h3>Document &amp; OCR work</h3>
+      <p>Ongoing freelance work with scanned documents, PDFs, and images — text extraction, OCR clean-up, and document-processing workflows for clients.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>skills</h2>
+    <div class="skills-grid">
+      <div><b>Programming</b><span>Python, Tkinter, Pygame</span></div>
+      <div><b>Tools &amp; systems</b><span>Linux, Git, GitHub, SQLite, PyInstaller</span></div>
+      <div><b>Documents</b><span>OCR workflows, text extraction, formatting, proofreading</span></div>
+      <div><b>Typing</b><span>~80 WPM</span></div>
+    </div>
+  </section>
+
+  <section class="edu">
+    <h2>education</h2>
+    <p><b>Class 10</b> — Jingle Bells Public School — 2024, 91%</p>
+    <p><b>Class 12</b> — National Institute of Open Schooling (NIOS)</p>
+  </section>
+
+  <footer>
+    Available for freelance translation and Python development work. Reach out by email or phone above.
+  </footer>
+
+</div>
+</body>
+</html>
