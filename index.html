@@ -1,218 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sparsh Saxena — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --paper: #FAF6EF;
-    --ink: #1C2B3A;
-    --ink-soft: #4A5A6A;
-    --rule: #D8CFBE;
-    --gold: #A9822C;
-    --code-bg: #F1ECDD;
-    font-family: 'Source Serif 4', Georgia, serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #14181D;
-      --ink: #ECE6D6;
-      --ink-soft: #A9B0B8;
-      --rule: #333B44;
-      --gold: #D3AE5C;
-      --code-bg: #1D2228;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #14181D;
-    --ink: #ECE6D6;
-    --ink-soft: #A9B0B8;
-    --rule: #333B44;
-    --gold: #D3AE5C;
-    --code-bg: #1D2228;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
-  header.hero { margin-bottom: 3.5rem; }
-  .kicker {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--gold);
-    letter-spacing: 0.02em;
-    margin: 0 0 0.6rem;
-  }
-  h1 {
-    font-size: clamp(2.4rem, 6vw, 3.4rem);
-    line-height: 1.05;
-    margin: 0 0 1rem;
-    font-weight: 600;
-  }
-  .lede {
-    font-size: 1.15rem;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    max-width: 56ch;
-    margin: 0 0 1.6rem;
-  }
-  .contact {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1.2rem;
-  }
-  .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .contact a:hover { border-color: var(--gold); color: var(--gold); }
-
-  section { margin-bottom: 3rem; }
-  h2 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--ink-soft);
-    margin: 0 0 1.2rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .langs { columns: 2; column-gap: 2rem; font-size: 0.98rem; line-height: 1.9; color: var(--ink-soft); }
-  .langs div { break-inside: avoid; }
-  .langs b { color: var(--ink); font-weight: 600; }
-
-  .project {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.3rem;
-    padding: 1.4rem;
-    margin-bottom: 1.1rem;
-    background: var(--code-bg);
-    border-radius: 4px;
-    border: 1px solid var(--rule);
-  }
-  .project h3 { margin: 0 0 0.4rem; font-size: 1.15rem; font-weight: 600; }
-  .project p { margin: 0 0 0.6rem; color: var(--ink-soft); line-height: 1.55; font-size: 0.97rem; }
-  .project ul { margin: 0 0 0.7rem; padding-left: 1.1rem; color: var(--ink-soft); font-size: 0.94rem; line-height: 1.6; }
-  .project a.repo {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--gold);
-    text-decoration: none;
-  }
-  .project a.repo:hover { text-decoration: underline; }
-
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.4rem; }
-  .skills-grid div b {
-    display: block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    text-transform: none;
-    color: var(--gold);
-    margin-bottom: 0.4rem;
-  }
-  .skills-grid div span { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
-
-  .edu p { margin: 0 0 0.3rem; color: var(--ink-soft); font-size: 0.97rem; }
-  .edu b { color: var(--ink); }
-
-  footer {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-    border-top: 1px solid var(--rule);
-    padding-top: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 520px) {
-    .langs { columns: 1; }
-    .wrap { padding: 2.8rem 1.2rem 3.5rem; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Sparsh Saxena — Python developer building practical desktop software, document-processing tools, and OCR workflows. Hindi–English language services.">
+  <title>Sparsh Saxena | Python Developer & Document Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#0b1120;--panel:#111b2e;--panel2:#15223a;--text:#edf3ff;--muted:#a5b3c9;--line:#263650;--accent:#7dd3fc;--accent2:#a5b4fc;--green:#86efac;--max:1080px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:24px}
+    body{margin:0;background:radial-gradient(ellipse at 80% 0%,#162746 0,transparent 38%),var(--bg);color:var(--text);font-family:"DM Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);gap:20px}
+    .brand{font-family:"DM Mono",monospace;font-size:.9rem;letter-spacing:.02em;color:var(--accent);text-decoration:none}
+    nav{display:flex;gap:22px;flex-wrap:wrap}
+    nav a{font-size:.88rem;color:var(--muted);text-decoration:none}
+    nav a:hover,.text-link:hover{color:var(--accent)}
+    .hero{padding:86px 0 72px;max-width:850px}
+    .eyebrow{font:500 .78rem "DM Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+    h1{font-size:clamp(2.7rem,7vw,5.5rem);letter-spacing:-.065em;line-height:1.02;margin:0;max-width:850px}
+    .hero h1 span{color:var(--accent)}
+    .intro{font-size:clamp(1.08rem,2vw,1.28rem);line-height:1.8;color:var(--muted);max-width:730px;margin:26px 0 0}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:9px;border:1px solid var(--line);font-weight:600;text-decoration:none;font-size:.92rem}
+    .button.primary{background:var(--accent);border-color:var(--accent);color:#071321}
+    .button:hover{transform:translateY(-1px)}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .pill{font:400 .78rem "DM Mono",monospace;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:#0e1728}
+    section{padding:38px 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:180px 1fr;gap:28px;margin-bottom:24px}
+    h2{font-size:1.05rem;margin:0;color:var(--accent);font-family:"DM Mono",monospace;font-weight:500}
+    .section-intro{color:var(--muted);margin:0;max-width:690px}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .card{background:linear-gradient(145deg,var(--panel),#0f1829);border:1px solid var(--line);border-radius:14px;padding:24px;min-width:0}
+    .card.featured{grid-column:1/-1;background:linear-gradient(120deg,#14233a,#101a2b)}
+    .card-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}
+    .tag{font:400 .72rem "DM Mono",monospace;color:var(--green);text-transform:uppercase;letter-spacing:.07em}
+    .number{font:400 .78rem "DM Mono",monospace;color:#657995}
+    h3{font-size:1.15rem;line-height:1.35;letter-spacing:-.02em;margin:0 0 10px}
+    .card p{color:var(--muted);font-size:.95rem;margin:0 0 14px}
+    .card ul{padding-left:19px;margin:12px 0 18px;color:var(--muted);font-size:.92rem}
+    .card li+li{margin-top:6px}
+    .text-link{font:500 .82rem "DM Mono",monospace;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}
+    .tech{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+    .tech span{font-size:.76rem;color:#c7d5eb;background:var(--panel2);border:1px solid #2a3c59;border-radius:6px;padding:4px 8px}
+    .skill-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .skill{padding:18px;border:1px solid var(--line);background:var(--panel);border-radius:12px}
+    .skill h3{font-size:.92rem;margin-bottom:9px}
+    .skill p{font-size:.87rem;color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .note{border-left:2px solid var(--accent);padding:2px 0 2px 18px;color:var(--muted);margin:0}
+    .contact-panel{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px;border:1px solid var(--line);background:var(--panel);border-radius:14px}
+    .contact-panel h3{font-size:1.35rem;margin-bottom:6px}
+    .contact-panel p{margin:0;color:var(--muted)}
+    footer{padding:30px 0 42px;color:#8091aa;font-size:.82rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    @media(max-width:760px){.hero{padding:62px 0 52px}.section-head{grid-template-columns:1fr;gap:10px}.skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-panel{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.wrap{width:min(100% - 28px,var(--max))}.topbar{align-items:flex-start;flex-direction:column}.cards,.about-grid{grid-template-columns:1fr}.card.featured{grid-column:auto}.hero{padding-top:48px}nav{gap:15px}.skill-grid{grid-template-columns:1fr 1fr}.card{padding:20px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button:hover{transform:none}}
+  </style>
 </head>
 <body>
-<div class="wrap">
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="#home">SPARSH / PORTFOLIO</a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <header class="hero">
-    <p class="kicker">Freelance developer &amp; Hindi–English document specialist</p>
-    <h1>Sparsh Saxena</h1>
-    <p class="lede">I build small Python tools and full desktop applications, and handle Hindi–English document work — OCR, text extraction, proofreading, and formatting — with about five years behind a keyboard.</p>
-    <div class="contact">
-      <a href="mailto:pythonguy64@gmail.com">pythonguy64@gmail.com</a>
-      <a href="tel:+917253841664">+91 7253841664</a>
-      <a href="https://github.com/lkhuh" target="_blank" rel="noopener">github.com/lkhuh</a>
-      <span style="color:var(--ink-soft)">India</span>
-    </div>
-  </header>
+    <main>
+      <header class="hero" id="home">
+        <p class="eyebrow">Python development · Desktop software · Document workflows</p>
+        <h1>Hi, I'm Sparsh.<br><span>I build useful things.</span></h1>
+        <p class="intro">I'm a self-directed Python developer focused on practical software: desktop applications, school administration tools, OCR-assisted document workflows, and automation. I also take on Hindi–English language and document tasks where accuracy and clear formatting matter.</p>
+        <div class="actions">
+          <a class="button primary" href="#work">Explore my work ↓</a>
+          <a class="button" href="mailto:pythonguy64@gmail.com">Get in touch ↗</a>
+          <a class="button" href="https://github.com/lkhuh" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
+        </div>
+        <div class="meta" aria-label="Professional focus">
+          <span class="pill">Python</span>
+          <span class="pill">Tkinter / SQLite</span>
+          <span class="pill">OCR & document processing</span>
+          <span class="pill">Hindi ↔ English</span>
+        </div>
+      </header>
 
-  <section>
-    <h2>languages</h2>
-    <div class="langs">
-      <div><b>Hindi</b> — native / mother tongue</div>
-      <div><b>English</b> — advanced, C1 working proficiency</div>
-      <div>English ↔ Hindi written-content handling</div>
-      <div>Proofreading &amp; text review</div>
-      <div>Terminology research for unfamiliar words and names</div>
-      <div>Consistent formatting across translated content</div>
-    </div>
-  </section>
+      <section id="work">
+        <div class="section-head">
+          <h2>01 / Selected work</h2>
+          <p class="section-intro">I care about software that solves a real problem, can be used by people outside a developer's machine, and is documented well enough to maintain.</p>
+        </div>
+        <div class="cards">
+          <article class="card featured">
+            <div class="card-top"><span class="tag">Featured · Real-world application</span><span class="number">01</span></div>
+            <h3>School Administration System</h3>
+            <p>A desktop management system developed for Candida Little Wings School to support day-to-day administrative work. The project brings several school workflows into purpose-built Python tools.</p>
+            <ul>
+              <li>Separate modules for student marks and report cards, fee collection, billing, teacher records, and salary management.</li>
+              <li>SQLite-backed data storage and a Tkinter desktop interface.</li>
+              <li>Packaged as a Windows executable with PyInstaller for staff use without a separate Python workflow.</li>
+            </ul>
+            <div class="tech"><span>Python</span><span>Tkinter</span><span>SQLite</span><span>PyInstaller</span></div>
+            <a class="text-link" href="https://github.com/lkhuh/FOR-CANDIDA" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">Document automation</span><span class="number">02</span></div>
+            <h3>School Question Paper Generator</h3>
+            <p>A desktop tool designed to help prepare question papers from sample-paper patterns, handwritten questions, or syllabus-based AI-generated questions, with an editable review step before export.</p>
+            <ul>
+              <li>OCR workflows for printed and handwritten material.</li>
+              <li>Local AI by default, with an optional cloud provider.</li>
+              <li>PDF and Word export for practical classroom use.</li>
+            </ul>
+            <div class="tech"><span>Python</span><span>OCR</span><span>Ollama</span><span>Gemini API</span><span>PDF / DOCX</span></div>
+            <a class="text-link" href="https://github.com/lkhuh/project-of-mine" target="_blank" rel="noopener noreferrer">View project & setup ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">Learning project</span><span class="number">03</span></div>
+            <h3>Pong in Python</h3>
+            <p>A small playable game built to practise core game-development concepts, including the update loop, object movement, collision handling, and score tracking.</p>
+            <div class="tech"><span>Python</span><span>Pygame</span><span>Game logic</span></div>
+            <a class="text-link" href="https://github.com/lkhuh/pong-game-of-mine" target="_blank" rel="noopener noreferrer">View repository ↗</a>
+          </article>
+          <article class="card">
+            <div class="card-top"><span class="tag">Ongoing practice</span><span class="number">04</span></div>
+            <h3>Python & Tkinter Experiments</h3>
+            <p>A growing collection of GUI experiments and small programs from my ongoing practice with Python and desktop application development.</p>
+            <div class="tech"><span>Python</span><span>Tkinter</span><span>GUI development</span></div>
+            <a class="text-link" href="https://github.com/lkhuh/mytkinterrepo" target="_blank" rel="noopener noreferrer">Browse code ↗</a>
+          </article>
+        </div>
+      </section>
 
-  <section>
-    <h2>selected work</h2>
+      <section id="skills">
+        <div class="section-head">
+          <h2>02 / Skills & tools</h2>
+          <p class="section-intro">My strongest focus is Python-based desktop software and document workflows. I keep learning by building, testing, and improving real projects.</p>
+        </div>
+        <div class="skill-grid">
+          <div class="skill"><h3>Development</h3><p>Python, Tkinter, Pygame, desktop GUI design, application logic</p></div>
+          <div class="skill"><h3>Data & packaging</h3><p>SQLite, PDF/DOCX workflows, PyInstaller, file handling</p></div>
+          <div class="skill"><h3>AI & OCR workflows</h3><p>Tesseract OCR, TrOCR, local LLM integration, API-based AI features</p></div>
+          <div class="skill"><h3>Tools & language</h3><p>Git, GitHub, Linux fundamentals, Hindi–English written-content handling</p></div>
+        </div>
+      </section>
 
-    <div class="project">
-      <h3>School management system — Candida Little Wings School</h3>
-      <p>A full desktop administration system built for a real school, in production use.</p>
-      <ul>
-        <li>Python/Tkinter app with separate modules for student marks &amp; report cards, fee collection, billing, teacher records, and salary — each backed by its own SQLite database.</li>
-        <li>Packaged as a standalone Windows executable with PyInstaller so non-technical staff could run it without installing Python.</li>
-        <li>Also built a companion exam-paper / question-pattern generator for the same school.</li>
-      </ul>
-      <a class="repo" href="https://github.com/lkhuh/FOR-CANDIDA" target="_blank" rel="noopener">github.com/lkhuh/FOR-CANDIDA →</a>
-    </div>
+      <section id="about">
+        <div class="section-head">
+          <h2>03 / About me</h2>
+          <p class="section-intro">I like understanding how things work and turning that curiosity into useful, tangible projects.</p>
+        </div>
+        <div class="about-grid">
+          <p class="note">I've spent several years learning and experimenting with Python, from small scripts and GUI projects to applications intended for everyday use. I value practical problem-solving, clear documentation, and honest representation of what a tool can and cannot do.</p>
+          <p class="note">Alongside development, I work with Hindi and English written content, including text review, proofreading, formatting, and document cleanup. Hindi is my native language, and I focus on careful, consistent delivery.</p>
+        </div>
+      </section>
 
-    <div class="project">
-      <h3>Pong, from scratch</h3>
-      <p>A playable Pong game written in Python — game loop, collision detection, and score tracking built without a framework.</p>
-      <a class="repo" href="https://github.com/lkhuh/pong-game-of-mine" target="_blank" rel="noopener">github.com/lkhuh/pong-game-of-mine →</a>
-    </div>
-
-    <div class="project">
-      <h3>Document &amp; OCR work</h3>
-      <p>Ongoing freelance work with scanned documents, PDFs, and images — text extraction, OCR clean-up, and document-processing workflows for clients.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>skills</h2>
-    <div class="skills-grid">
-      <div><b>Programming</b><span>Python, Tkinter, Pygame</span></div>
-      <div><b>Tools &amp; systems</b><span>Linux, Git, GitHub, SQLite, PyInstaller</span></div>
-      <div><b>Documents</b><span>OCR workflows, text extraction, formatting, proofreading</span></div>
-      <div><b>Typing</b><span>~80 WPM</span></div>
-    </div>
-  </section>
-
-  <section class="edu">
-    <h2>education</h2>
-    <p><b>Class 10</b> — Jingle Bells Public School — 2024, 91%</p>
-    <p><b>Class 12</b> — National Institute of Open Schooling (NIOS)</p>
-  </section>
-
-  <footer>
-    Available for freelance translation and Python development work. Reach out by email or phone above.
-  </footer>
-
-</div>
+      <section id="contact">
+        <div class="section-head">
+          <h2>04 / Contact</h2>
+          <p class="section-intro">For Python tools, desktop-app work, document processing, or Hindi–English language projects, feel free to reach out.</p>
+        </div>
+        <div class="contact-panel">
+          <div><h3>Have a project in mind?</h3><p>Share the problem you're trying to solve and we can take it from there.</p></div>
+          <div class="actions" style="margin-top:0">
+            <a class="button primary" href="mailto:pythonguy64@gmail.com">Email me ↗</a>
+            <a class="button" href="https://github.com/lkhuh" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><span>© <span id="year">2026</span> Sparsh Saxena</span><span>Built with care · Hosted on GitHub Pages</span></footer>
+  </div>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
